@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "117005939167",
+    "firebase_url": "https://myweightgoal-8e96f.firebaseio.com",
+    "project_id": "myweightgoal-8e96f",
+    "storage_bucket": "myweightgoal-8e96f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:117005939167:android:646476c331906b2e",
+        "android_client_info": {
+          "package_name": "com.moory.myweightgoal"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "117005939167-m3id57ufv63nu6n4a55c5ei1tlmdpn2v.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.moory.myweightgoal",
+            "certificate_hash": "bb1ae2648db82881faa01b88360c8fbbb5535df7"
+          }
+        },
+        {
+          "client_id": "117005939167-9mjscn99vgvb96nrcuqeqes56tchcms0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCJm8lxGiBOS0VEjhJc63etWzM7zBCpZ1w"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "117005939167-9mjscn99vgvb96nrcuqeqes56tchcms0.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
