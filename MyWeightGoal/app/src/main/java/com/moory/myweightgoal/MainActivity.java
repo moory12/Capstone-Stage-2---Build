@@ -170,11 +170,12 @@ public class MainActivity extends AppCompatActivity
                 setFromSharedPreference();
         }
 
+    }
 
 
-
-
-
+    @Override
+    protected void onStart() {
+        super.onStart();
 
         //setting menu
 
@@ -184,7 +185,7 @@ public class MainActivity extends AppCompatActivity
             prefs = getSharedPreferences(context.getString(R.string.shared_preference_name), MODE_PRIVATE);
 
             mStorageRef = FirebaseStorage.getInstance().getReference().child(mAuth.getCurrentUser().getUid());
-            myRef.addValueEventListener(new ValueEventListener() {
+            myRef.addListenerForSingleValueEvent(new ValueEventListener() {
                 @Override
                 public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                     if (dataSnapshot.child(context.getString(R.string.url_to_image)).exists()) {
@@ -244,12 +245,6 @@ public class MainActivity extends AppCompatActivity
 
 
         }
-
-
-
-
-
-
     }
 
     public void setFromSharedPreference(){

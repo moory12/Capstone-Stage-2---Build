@@ -79,7 +79,7 @@ public class EditProfileActivity extends AppCompatActivity {
 
             myRef = database.getReference(context.getString(R.string.users)).child(mAuth.getCurrentUser().getUid());
             mStorageRef = FirebaseStorage.getInstance().getReference().child(mAuth.getCurrentUser().getUid());
-            myRef.addValueEventListener(new ValueEventListener() {
+            myRef.addListenerForSingleValueEvent(new ValueEventListener() {
                 @Override
                 public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                     if (dataSnapshot.child(context.getString(R.string.url_to_image)).exists()) {
@@ -96,10 +96,10 @@ public class EditProfileActivity extends AppCompatActivity {
                         edit_gender.setText(dataSnapshot.child(context.getString(R.string.gender)).getValue(String.class));
                     }
                     if (dataSnapshot.child(context.getString(R.string.height_s)).exists()) {
-                        edit_height.setText(new DecimalFormat(context.getString(R.string.two_digit_decimal)).format(dataSnapshot.child(context.getString(R.string.height_s)).getValue(Float.class))+context.getString(R.string.m));
+                        edit_height.setText(new DecimalFormat(context.getString(R.string.two_digit_decimal)).format(dataSnapshot.child(context.getString(R.string.height_s)).getValue(Float.class)));
                     }
                     if (dataSnapshot.child(context.getString(R.string.weight_s)).exists()) {
-                        edit_weight.setText(new DecimalFormat(context.getString(R.string.two_digit_decimal)).format(dataSnapshot.child(context.getString(R.string.weight_s)).getValue(Float.class))+context.getString(R.string.kg));
+                        edit_weight.setText(new DecimalFormat(context.getString(R.string.two_digit_decimal)).format(dataSnapshot.child(context.getString(R.string.weight_s)).getValue(Float.class)));
                     }
                 }
 
@@ -129,12 +129,12 @@ public class EditProfileActivity extends AppCompatActivity {
 
             float weight = prefs.getFloat(context.getString(R.string.weight), 0);
             if (weight != 0) {
-                edit_weight.setText(new DecimalFormat(context.getString(R.string.two_digit_decimal)).format(weight)+context.getString(R.string.kg));
+                edit_weight.setText(new DecimalFormat(context.getString(R.string.two_digit_decimal)).format(weight));
             }
 
             float height = prefs.getFloat(context.getString(R.string.height), 0);
             if (height != 0) {
-                edit_height.setText(new DecimalFormat(context.getString(R.string.two_digit_decimal)).format(height)+context.getString(R.string.m));
+                edit_height.setText(new DecimalFormat(context.getString(R.string.two_digit_decimal)).format(height));
             }
 
 
@@ -149,7 +149,7 @@ public class EditProfileActivity extends AppCompatActivity {
                     String gender = edit_gender.getText().toString();
                     myRef.child(context.getString(R.string.gender)).setValue(gender);
                     String age = edit_age.getText().toString();
-                    myRef.child(context.getString(R.string.age)).setValue(age);
+                    myRef.child(context.getString(R.string.age_s)).setValue(age);
                     float weight = Float.parseFloat(edit_weight.getText().toString());
                     myRef.child(context.getString(R.string.weight_s)).setValue(weight);
                     float height = Float.parseFloat(edit_height.getText().toString());
